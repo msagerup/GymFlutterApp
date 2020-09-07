@@ -13,11 +13,25 @@ class GymIntro extends StatelessWidget {
      body: SafeArea(
        child: Container(
          child: Column(
-           crossAxisAlignment: CrossAxisAlignment.stretch,
+           // crossAxisAlignment: CrossAxisAlignment.stretch,
            children: <Widget>[
              Container(
                color: Colors.pinkAccent,
-               child: (Text('Hello')),
+               child: Row(
+                 children: [
+                   Text('new Line'),
+                   Column(
+                     children: [
+                       Text('dfd'),
+                       Text('dfd'),
+                       Text('dfd'),
+                       Text('dfd'),
+
+                     ],
+                   )
+
+                 ],
+               )
              ),
              Container(
                color: Colors.pinkAccent,
@@ -30,15 +44,10 @@ class GymIntro extends StatelessWidget {
              Container(
                color: Colors.blue,
                child: Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                  children: <Widget>[
                    Text('inline'),
                    Text('inline'),
-                   Column(
-                     children: <Widget>[
-                       Text('dfsf'),
-                       Text('fdsfd')
-                     ],
-                   )
                  ],
                )
              ),
