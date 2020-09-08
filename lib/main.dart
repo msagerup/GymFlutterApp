@@ -5,54 +5,124 @@ void main() => runApp(MaterialApp(
 ));
 
 
-class GymIntro extends StatelessWidget {
+class GymIntro extends StatefulWidget {
+  @override
+  _GymIntroState createState() => _GymIntroState();
+}
+
+class _GymIntroState extends State<GymIntro> {
+
+  //State
+  bool logedIn = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      // backgroundColor: Colors.grey[900],
+      extendBody: true,
      body: SafeArea(
-       child: Column(
-         children: [
-           Expanded(
-             child: Container(
-               color: Colors.redAccent,
-               child: Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-                   Column(
+       bottom: false,
+       child: Container(
+         decoration: BoxDecoration(
+           image: DecorationImage(
+             image: AssetImage('assets/gym2.jpg'),
+             fit: BoxFit.cover,
+           ),
+         ),
+         child: Container(
+           decoration: BoxDecoration(
+             gradient: LinearGradient(
+               begin: Alignment.topRight,
+               end: Alignment.bottomCenter,
+               colors: [Colors.amber.withOpacity(0.9), Colors.cyan.withOpacity(0)]
+             )
+           ),
+           child: Column(
+             children: [
+               Expanded(
+                 flex: 1,
+                 child: Container(
+                   child: Row(
                      mainAxisAlignment: MainAxisAlignment.center,
-                     crossAxisAlignment: CrossAxisAlignment.center,
-                       children: [
-                       Text('Coumn 1'),
-                       Text('CSD')
-                     ],
-                   ),
-                   Column(
-                     mainAxisAlignment: MainAxisAlignment.end,
                      children: [
-                       Text('Column 2')
+                       Column(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           Text(
+                             'Gym-O Tron',
+                             style: TextStyle(
+                               color: Colors.cyan,
+                               fontSize: 50,
+                               fontFamily: ('Syne'),
+
+                             ),
+                           )
+                         ],
+                       ),
                      ],
                    )
-                 ],
-               )
-             ),
+                 ),
+               ),
+               Expanded(
+                 flex: 1,
+                 child: Container(
+                   // color: Colors.amber.withOpacity(0.3),
+                 ),
+               ),
+               Expanded(
+                 flex: 1,
+                 child: Container(
+                   child: Row(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Column(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           //View logged in or not.
+                           Text(
+                             '$logedIn'
+                           ),
+                         ],
+                       ),
+                     ],
+                   ),
+                 ),
+               ),
+             ],
            ),
-           Expanded(
-             child: Container(
-               color: Colors.black87,
-             ),
-           ),
-           Expanded(
-             child: Container(
-               color: Colors.redAccent,
-             ),
-           ),
-         ],
-       )
-     )
+         ),
+       ),
+     ),
+      floatingActionButton: Container(
+        height: 80,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                logedIn = !logedIn;
+              });
+            },
+            tooltip: 'Increment Counter',
+            child: Text('Login'),
+            backgroundColor: Colors.amber[800],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.amber,
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10.0,
+        child: Container(
+          height: 60,
+        ),
+      ),
+      floatingActionButtonLocation: (
+          FloatingActionButtonLocation.endDocked
+      ),
     );
   }
 }
+
 
 
 
