@@ -11,48 +11,43 @@ class GymIntro extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[900],
      body: SafeArea(
-       child: Container(
-         child: Column(
-           // crossAxisAlignment: CrossAxisAlignment.stretch,
-           children: <Widget>[
-             Container(
-               color: Colors.pinkAccent,
+       child: Column(
+         children: [
+           Expanded(
+             child: Container(
+               color: Colors.redAccent,
                child: Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   Text('new Line'),
                    Column(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                       children: [
+                       Text('Coumn 1'),
+                       Text('CSD')
+                     ],
+                   ),
+                   Column(
+                     mainAxisAlignment: MainAxisAlignment.end,
                      children: [
-                       Text('dfd'),
-                       Text('dfd'),
-                       Text('dfd'),
-                       Text('dfd'),
-
+                       Text('Column 2')
                      ],
                    )
-
                  ],
                )
              ),
-             Container(
-               color: Colors.pinkAccent,
-               child: (Text('new line')),
+           ),
+           Expanded(
+             child: Container(
+               color: Colors.black87,
              ),
-             Container(
-               color: Colors.pinkAccent,
-               child: (Text('new line again')),
+           ),
+           Expanded(
+             child: Container(
+               color: Colors.redAccent,
              ),
-             Container(
-               color: Colors.blue,
-               child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                 children: <Widget>[
-                   Text('inline'),
-                   Text('inline'),
-                 ],
-               )
-             ),
-           ],
-         )
+           ),
+         ],
        )
      )
     );
