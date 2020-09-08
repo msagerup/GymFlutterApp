@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'quotes.dart';
 
 void main() => runApp(MaterialApp(
-  home: GymIntro()
+  // home: GymIntro()
+    home: QuoteList()
 ));
 
 
@@ -123,6 +125,35 @@ class _GymIntroState extends State<GymIntro> {
   }
 }
 
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+
+  List<Quote> quotes = [
+    Quote(author: 'Magnus S.', text: 'Pizza would be great'),
+    Quote(author: 'Tore S.', text: 'Saturday Pizza, anyone?')
+
+
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awsome quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Column(
+        children: quotes.map((item) => Text('${item.text} - ${item.author}')).toList(),
+      )
+    );
+  }
+}
 
 
 
