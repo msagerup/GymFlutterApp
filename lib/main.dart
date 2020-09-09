@@ -149,7 +149,14 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((item) => QuoteCard(quote: item)).toList(),
+        children: quotes.map((item) => QuoteCard(
+          quote: item,
+          delete: () {
+            setState(() {
+              quotes.remove(item);
+            });
+          }
+        )).toList(),
       )
     );
   }
